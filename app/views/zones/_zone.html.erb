@@ -56,8 +56,8 @@
             var blk = ele.parentNode;
             blk.style.display = "none";
             blk.className = "Zones hidden";
-            var a = document.getElementById('emptyCheck');
-            if (!a.firstChild) {
+            var a = document.getElementById('emptyCheck').innerHTML;
+            if (!a) {
                 document.getElementById('isemptystate').style.display = 'block';
             }
         }
