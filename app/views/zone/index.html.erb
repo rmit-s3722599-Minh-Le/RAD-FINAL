@@ -7,11 +7,27 @@
     <p><i class="fa fa-bed"></i>Sleep Time</p>
     <label for="myCheck">12hr clock</label> 
     <input type="checkbox" id="myCheck" onclick="myFunction()">
+    <br />
+    <b>modes</b>
+    <br />
+    <button class = "btn btn-warning" onclick = "darkmode()"> </button>
+    <button class = "btn btn-success" onclick = "crazymode()"> </button>
+    <button class = "btn btn-default" onclick = "whitemode()"> </button>
 </div>
 <div class="col-md-8 center blackBorder">
-    <% @zones.each do |zone| %>
-        <%= render zone%>
-    <%end%>
+    <div id = "zoneList">
+        <% @zones.each do |zone| %>
+            <%= render zone%>
+        <%end%>
+    <button id = "plus" onclick="toAdd()"><i class="fa fa-plus fa-3x"></i></button>
+    </div>
+    
+    <div id = "searchTab" style="display:none;">
+        <input type="text" id="myInput" oninput="toSearch()">
+        <button class="btn btn-warning" onclick ="toCancel()">cancel</button>
+        <div id = "sresult">
+        </div>
+    </div>
 </div>
 <%# <div class= "col-md-2 right">
     <label for="myCheck">12hr clock</label> 
@@ -39,4 +55,59 @@ function myFunction() {
       }
   }
 }
+function toAdd() {
+    document.getElementById("zoneList").style.display = "none";
+    document.getElementById("searchTab").style.display = "block";
+}
+
+function toCancel() {
+    document.getElementById("zoneList").style.display = "block";
+    document.getElementById("searchTab").style.display = "none";
+}
+
+
+function toSearch() {
+    var x = document.getElementById("myInput").value;
+    var items = document.getElementsByClassName("hidden");
+    var thisDiv = "";
+    var count = 0;
+    for(var i = 0; i < items.length; i++) {
+        var str = items.item(i).id;
+        if(count == 5) {
+            break;
+        }
+        if(str.toLowerCase().includes(x)) {
+            thisDiv += '<div class = "clickable"' + "onclick="+ '"adding(' + "this" +')"'+ '>' + str + '</div>';
+            count++;
+        }
+        if(x == "") {
+            thisDiv = "";
+            break;
+        }
+    }
+    document.getElementById("sresult").innerHTML = thisDiv;
+}
+
+function adding(ans) {
+    console.log(ans.innerHTML)
+    var a = document.getElementById(ans.innerHTML);
+    a.style.display = "block";
+    a.className = "Zones"
+    toCancel();
+}
+
+function darkmode() {
+   var element = document.body;
+   element.classList.setA("dark-mode");
+}
+function crazymode() {
+   var element = document.body;
+   element.classList.toggle("crazy-mode");
+}
+
+function whitemode() {
+   var element = document.body;
+   element.classList.toggle("white-mode");
+}
+
 </script>

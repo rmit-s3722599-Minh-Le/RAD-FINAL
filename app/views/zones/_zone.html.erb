@@ -14,8 +14,12 @@
     end
     
     %>
-
-    <div class = "Zones">
+    <% if area == "Australia/Melbourne" || area == "Australia/Sydney" || area == "Asia/Tokyo"%>
+    <div class = "Zones" id = "<%= area.split("/")[-1] %>">
+    <% else%>
+    <div class = "Zones hidden" id = "<%= area.split("/")[-1] %>" style="display:none;">
+    <%end%>
+    <button class = "delete" onclick = "toDelete(this)"><i class="fa fa-times"></i></button>
     <h3>
     <% if area.include? "/" %>
         <%= area.split("/")[-1] %>
@@ -40,9 +44,19 @@
         <i class="fa fa-bed"></i>
     <%end%>
     </h3>
-    <p><%= zone.offset - Time.current.utc_offset/60/60 %>hrs, <%=compTime %></p>
+    <h5><%= zone.offset - Time.current.utc_offset/60/60 %>hrs, <%=compTime %></h5>
     </div>
     <%#end%>
     <%#= ActiveSupport::TimeZone::MAPPING.select{|k, v| v == area }.keys.first%>
     <%end%>
+
+    <script>
+
+        function toDelete(ele) {
+            var blk = ele.parentNode;
+            blk.style.display = "none";
+            blk.className = "Zones hidden";
+        }
+        
+    </script>
     
