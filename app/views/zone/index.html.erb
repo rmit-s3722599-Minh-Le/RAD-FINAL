@@ -16,10 +16,12 @@
 </div>
 <div class="col-md-8 center blackBorder">
     <div id = "zoneList">
+        <div id = "emptyCheck">
         <div id = "isemptystate" style="display:none;">Add more!</div>
         <% @zones.each do |zone| %>
             <%= render zone%>
         <%end%>
+        </div>
     <button id = "plus" onclick="toAdd()"><i class="fa fa-plus fa-3x"></i></button>
     </div>
     
