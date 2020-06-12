@@ -16,6 +16,7 @@
 </div>
 <div class="col-md-8 center blackBorder">
     <div id = "zoneList">
+        <div id = "isemptystate" style="display:none;">Add more!</div>
         <% @zones.each do |zone| %>
             <%= render zone%>
         <%end%>
@@ -93,6 +94,7 @@ function adding(ans) {
     var a = document.getElementById(ans.innerHTML);
     a.style.display = "block";
     a.className = "Zones"
+    document.getElementById('isemptystate').style.display = 'none';
     toCancel();
 }
 
