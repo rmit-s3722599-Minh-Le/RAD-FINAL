@@ -3,16 +3,16 @@ Minh Le - s3722599
 https://protected-citadel-87960.herokuapp.com/
 
 #LOGS
-2020-06-12T21:03:22.792483+00:00 heroku[web.1]: State changed from up to starting
-2020-06-12T21:03:24.511235+00:00 heroku[web.1]: Stopping all processes with SIGTERM
-2020-06-12T21:03:24.553427+00:00 app[web.1]: - Gracefully stopping, waiting for requests to finish
-2020-06-12T21:03:24.556430+00:00 app[web.1]: === puma shutdown: 2020-06-12 21:03:24 +0000 ===
-2020-06-12T21:03:24.556436+00:00 app[web.1]: - Goodbye!
-2020-06-12T21:03:24.556550+00:00 app[web.1]: Exiting
-2020-06-12T21:03:24.692743+00:00 heroku[web.1]: Process exited with status 143
-2020-06-12T21:03:25.000000+00:00 app[api]: Build succeeded
-2020-06-12T21:03:25.809991+00:00 heroku[web.1]: Starting process with command `bin/rails server -p ${PORT:-5000} -e production`
-2020-06-12T21:03:31.281376+00:00 heroku[web.1]: State changed from starting to up
+1. 2020-06-12T21:03:22.792483+00:00 heroku[web.1]: State changed from up to starting
+2. 2020-06-12T21:03:24.511235+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+3. 2020-06-12T21:03:24.553427+00:00 app[web.1]: - Gracefully stopping, waiting for requests to finish
+4. 2020-06-12T21:03:24.556430+00:00 app[web.1]: === puma shutdown: 2020-06-12 21:03:24 +0000 ===
+5. 2020-06-12T21:03:24.556436+00:00 app[web.1]: - Goodbye!
+6. 2020-06-12T21:03:24.556550+00:00 app[web.1]: Exiting
+7. 2020-06-12T21:03:24.692743+00:00 heroku[web.1]: Process exited with status 143
+8. 2020-06-12T21:03:25.000000+00:00 app[api]: Build succeeded
+9. 2020-06-12T21:03:25.809991+00:00 heroku[web.1]: Starting process with command `bin/rails server -p ${PORT:-5000} -e production`
+10. 2020-06-12T21:03:31.281376+00:00 heroku[web.1]: State changed from starting to up
 
 
 
