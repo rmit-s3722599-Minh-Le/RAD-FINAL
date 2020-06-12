@@ -101,16 +101,25 @@ function adding(ans) {
 
 function darkmode() {
    var element = document.body;
-   element.classList.toggle("dark-mode"); 
+//    element.classList.toggle("dark-mode");
+   element.classList.add("dark-mode");  
+   element.classList.remove("crazy-mode"); 
+   element.classList.remove("white-mode"); 
 }
 function crazymode() {
    var element = document.body;
-   element.classList.toggle("crazy-mode");
+//    element.classList.toggle("crazy-mode");
+   element.classList.remove("dark-mode");  
+   element.classList.add("crazy-mode"); 
+   element.classList.remove("white-mode"); 
 }
 
 function whitemode() {
    var element = document.body;
-   element.classList.toggle("white-mode");
+//    element.classList.toggle("white-mode");
+   element.classList.remove("dark-mode");  
+   element.classList.remove("crazy-mode"); 
+   element.classList.add("white-mode"); 
 }
 
 </script>
