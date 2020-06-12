@@ -1,0 +1,48 @@
+    <% zone.utc.each do |area|%>
+    <%# ActiveSupport::TimeZone::MAPPING.select{|k, v| v == area }.keys.each do |city|%> 
+    <%
+    #daydiff = (Time.current.in_time_zone(area).strftime("%D").to_i - Time.current.strftime("%D").to_i)/86400
+    # daydiff = (Time.current.in_time_zone(area).strftime("%d") - Time.current.strftime("%d"))
+    if Time.current.in_time_zone(area).strftime("%d") == Time.current.strftime("%d")
+        compTime = "today"
+    elsif Time.current.strftime("%d") > Time.current.in_time_zone(area).strftime("%d")
+        compTime = "yesterday"
+    elsif Time.current.strftime("%d") + 1.days == Time.current.in_time_zone(area).strftime("%d")
+        compTime == "tomorrow"
+    else
+        compTime = Time.current.in_time_zone(area).strftime('%A %b %d')
+    end
+    
+    %>
+
+    <div class = "Zones">
+    <h3>
+    <% if area.include? "/" %>
+        <%= area.split("/")[-1] %>
+    <% else%>
+        <%= area %>
+    <% end%>
+    <div class = "12hr" style="display:none;"> 
+        <%= Time.current.in_time_zone(area).strftime("%I:%M %P") %>
+    </div>
+    <div class = "24hr" > 
+        <%= Time.current.in_time_zone(area).strftime("%H:%M") %>
+    </div>
+     
+     <% thisTime = Time.current.in_time_zone(area).strftime('%H:%M') %>
+     <% if thisTime >= '09:00' && thisTime <= '17:59'%>
+        <i class="fa fa-circle" style="color:green;"></i>
+    <% elsif thisTime >= '18:00' && thisTime <= '19:59'%>
+        <i class="fa fa-circle" style="color:yellow;"></i>
+    <% elsif thisTime >= '08:00' && thisTime <= '08:59' || thisTime >= '20:00' && thisTime <= '22:59' %>
+        <i class="fa fa-circle" style="color:red;"></i>
+    <% else %>
+        <i class="fa fa-bed"></i>
+    <%end%>
+    </h3>
+    <p><%= zone.offset - Time.current.utc_offset/60/60 %>hrs, <%=compTime %></p>
+    </div>
+    <%#end%>
+    <%#= ActiveSupport::TimeZone::MAPPING.select{|k, v| v == area }.keys.first%>
+    <%end%>
+    

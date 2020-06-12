@@ -1,5 +1,42 @@
 <h1>Clock+</h1>
 <h4>Clock built by Minh Le s3722599, Attempted Grade: HD, Tutor group: 8:30-10:30am Monday</h4>
-<% Time.zone = 'Melbourne'%>
-<%= Time.zone.name%>
-<%= Time.current.strftime("%d/%m/%Y %H:%M")%>
+<div class="col-md-2 left">
+    <p><i class="fa fa-circle" style="color:green;"></i>Business Time</p>
+    <p><i class="fa fa-circle" style="color:yellow;"></i>Business Overtime</p>
+    <p><i class="fa fa-circle" style="color:red;"></i>Personal Time</p>
+    <p><i class="fa fa-bed"></i>Sleep Time</p>
+    <label for="myCheck">12hr clock</label> 
+    <input type="checkbox" id="myCheck" onclick="myFunction()">
+</div>
+<div class="col-md-8 center blackBorder">
+    <% @zones.each do |zone| %>
+        <%= render zone%>
+    <%end%>
+</div>
+<%# <div class= "col-md-2 right">
+    <label for="myCheck">12hr clock</label> 
+    <input type="checkbox" id="myCheck" onclick="myFunction()">
+</div> %>
+
+<script>
+function myFunction() {
+  var checkBox = document.getElementById("myCheck");
+  var twfour = document.getElementsByClassName("24hr");
+  var twelve = document.getElementsByClassName("12hr");
+  if (checkBox.checked == true){
+      for(var i = 0; i < twfour.length; i++) {
+          twelve.item(i).style.display = "block";
+      }
+        for(var i = 0; i < twfour.length; i++) {
+          twfour.item(i).style.display = "none";
+      }
+  } else {
+      for(var i = 0; i < twfour.length; i++) {
+          twelve.item(i).style.display = "none";
+      }
+        for(var i = 0; i < twfour.length; i++) {
+          twfour.item(i).style.display = "block";
+      }
+  }
+}
+</script>

@@ -8,6 +8,7 @@
   }
   body {
     margin-bottom: 60px; /* Margin bottom by footer height */
+    text-align: center;
   }
   .footer {
     position: absolute;
@@ -86,4 +87,15 @@ h1, h2, h3, h4, h5, h6 {
   p {
     font-size: 1.1em;
     line-height: 1.7em;
+  }
+
+  div.Zones {
+    display:block;
+    min-height: 50px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid grey;
+  }
+  div.blackBorder {
+      border: 2px solid black;
+      padding-top: 9px;
   }
