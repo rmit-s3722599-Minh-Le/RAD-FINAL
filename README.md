@@ -1,3 +1,12 @@
+## How to run the json file:
+1.  Go to Rails Console
+2. 
+3. z_list = JSON.parse(File.read('zone.json'))
+4.  z_list.each do |zn|
+5.   Zone.create(zn.to_h)
+6. end
+7. 
+
 ## Deployment
 Minh Le - s3722599
 https://protected-citadel-87960.herokuapp.com/
